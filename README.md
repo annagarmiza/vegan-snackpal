@@ -1,2 +1,2 @@
 # vegan-snackpal
-vegan🌿 snack🍬 pack📦 swap🔁 around the world🌐 app📱
+vegan🌿 snack🍬 pack📦 swap🔁 around the world🌐 - app📱
