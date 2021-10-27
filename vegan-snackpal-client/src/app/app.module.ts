@@ -10,15 +10,31 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UsersComponent } from './users/users.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { MatCardModule } from '@angular/material/card';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { UserItemComponent } from './users/user-list/user-item/user-item.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, MatchBoardComponent, UsersComponent, SignUpComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    MatchBoardComponent,
+    UsersComponent,
+    UserListComponent,
+    UserItemComponent,
+    SignUpComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     FontAwesomeModule,
+    MatCardModule,
+    MatButtonModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
