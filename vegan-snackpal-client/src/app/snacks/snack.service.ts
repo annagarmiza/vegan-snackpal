@@ -2,14 +2,13 @@ import { Snack } from '../snack.interface';
 
 export class SnackService {
   private snackPreference: Array<string> = [
-    'ALL FLAV IS FAB',
     'sweetooth',
     'salty',
     'sour',
     'fruity',
     'mint',
     'yummyGummi',
-    'hard Candy',
+    'hard candy',
     'choclate',
     'spicy',
     'licorice',
@@ -25,6 +24,23 @@ export class SnackService {
     'chips',
     'peanuts',
     'nutty nut',
+    'bubble gum',
+    'chewy',
+    'fizzies',
+    'gluten free',
+    'jelly beans',
+    'kosher',
+    'licorice',
+    'lollipop',
+    'nougat',
+    'organic',
+    'palm oil free',
+    'peanut free',
+    'nuts free',
+    'sugar free',
+    'toffee',
+    'dairy free facility',
+    'egg free facility',
   ];
 
   private snacks: Array<Snack> = [

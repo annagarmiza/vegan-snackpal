@@ -1,0 +1,123 @@
+<form>
+  <div class="personal-info">
+    <p>Hello There! Don't be a stranger 😉</p>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>First Name 🛂</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Mobile 📞</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email 📧</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Password 🔑</mat-label>
+      <input matInput />
+    </mat-form-field>
+  </div>
+  <div class="user-address-info">
+    <p>Your Address for the snackings 📮</p>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <input
+        type="text"
+        aria-label="Country"
+        matInput
+        [formControl]="formControl"
+        [matAutocomplete]="auto"
+      />
+      <mat-label>Country 🌍</mat-label>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let country of autoFilter | async"
+          [value]="country"
+        >
+          {{ country }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Address 📫</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>City</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>County (Optional)</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Postcode </mat-label>
+      <input matInput />
+    </mat-form-field>
+  </div>
+  <div class="user-preferences">
+    <p>Customize your preferences 🦋</p>
+    <mat-slide-toggle>No Snack Preferences</mat-slide-toggle>
+    <mat-slide-toggle>No Country Preferences</mat-slide-toggle>
+    <div class="size-picker">
+      <mat-label>Package Size (total snacks worth) </mat-label><br />
+      <mat-button-toggle-group name="packSize" aria-label="Package Size">
+        <mat-button-toggle value="S">S 10💲</mat-button-toggle>
+        <mat-button-toggle value="M">M 20💲</mat-button-toggle>
+        <mat-button-toggle value="L">L 30💲</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label
+        matTooltip="This will show on your profile as a short description"
+        mat-tooltip-panel-right
+        >About Me</mat-label
+      >
+      <textarea
+        matInput
+        placeholder="Give other people a glance to your inner world✨&#10;(E.g: 'I love lizards🦎 and gamblimg🎰')&#10;This will show on your profile as a short description"
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-chip-list" appearance="fill">
+      <mat-label>Add Snack Preferences</mat-label>
+      <mat-chip-list #chipList aria-label="Snack selection">
+        <mat-chip
+          *ngFor="let snack of userSnackPref"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(snack, userSnackPref)"
+        >
+          {{ snack }}
+          <button matChipRemove *ngIf="removable">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input
+          placeholder="Allergies/Texture/Flavours..."
+          #snackInput
+          [formControl]="snackCtrl"
+          [matAutocomplete]="auto1"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="add($event, userSnackPref, snackCtrl)"
+        />
+      </mat-chip-list>
+      <mat-autocomplete
+        #auto1="matAutocomplete"
+        (optionSelected)="selected($event, userSnackPref, snackCtrl)"
+      >
+        <mat-option
+          *ngFor="let snack of filteredSnacks | async"
+          [value]="snack"
+        >
+          {{ snack }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</form>
